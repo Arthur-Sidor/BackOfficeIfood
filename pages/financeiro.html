@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Financeiro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styleFinanceiro.css">
+</head>
+<body>
+
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <div class="profile-section text-center mb-4">
+            <img src="https://imagensfree.com.br/wp-content/uploads/2021/11/sorriso-ifood-fundo-transparente-grande.png" alt="Imagem do Perfil" class="profile-icon mb-2">
+            <h6 class="profile-name">Seu Nome</h6>
+        </div>
+
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="telainicial.html">
+                    <span class="icon">🏠</span> Início
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="financeiro.html">
+                    <span class="icon">💼</span> Financeiro
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="visaogeral.html">
+                    <span class="icon">🔍</span> Visão Geral
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="desempenho.html">
+                    <span class="icon">📊</span> Desempenho
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="relatorio.html">
+                    <span class="icon">📄</span> Relatórios
+                </a>
+            </li>
+        </ul>
+
+        <!-- Botões de Sair e Feedback centralizados -->
+        <div class="feedback-logout-section text-center mt-auto">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">
+                        <span class="icon">🚪</span> Sair
+                    </a>
+                </li>
+            </ul>
+            <div class="feedback-section mt-3">
+                <h6 class="mb-2">Feedback</h6>
+                <button class="btn btn-feedback" onclick="showFeedback('happy')">😊</button>
+                <button class="btn btn-feedback" onclick="showFeedback('sad')">😔</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <div class="dashboard-header d-flex justify-content-around">
+            <div class="card text-center p-3">
+                <h5>Saldo Atual</h5>
+                <p>R$ 20,000</p>
+            </div>
+            <div class="card text-center p-3">
+                <h5>Receitas Totais</h5>
+                <p>R$ 15,000</p>
+            </div>
+            <div class="card text-center p-3">
+                <h5>Despesas Totais</h5>
+                <p>R$ 10,000</p>
+            </div>
+            <div class="card text-center p-3">
+                <h5>Lucro / Prejuízo</h5>
+                <p>R$ 5,000</p>
+            </div>
+        </div>
+
+        <!-- Gráfico e métricas ao lado direito -->
+        <div class="d-flex justify-content-between mt-4 responsividade">
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="metrics d-flex flex-column justify-content-around ms-4">
+                <div>
+                    <label for="select-date">Selecione a data:</label>
+                    <input type="date" id="select-date" class="form-control">
+                </div>
+                <div class="card text-center p-3 mt-2">
+                    <h6>Total de vendas realizadas</h6>
+                    <p>100 <span class="text-success">+1.29%</span></p>
+                </div>
+                <div class="card text-center p-3 mt-2">
+                    <h6>Valor total de vendas</h6>
+                    <p>R$ 1000 <span class="text-success">+1.29%</span></p>
+                </div>
+                <div class="card text-center p-3 mt-2">
+                    <h6>Ticket médio</h6>
+                    <p>R$ 100 <span class="text-success">+1.29%</span></p>
+                </div>
+
+                <!-- Exportação de dados do gráfico -->
+                <button class="btn btn-info mt-3" onclick="exportChartData()">Exportar CSV</button>
+            </div>
+        </div>
+
+        <!-- Filtro do gráfico -->
+        <div class="mt-4">
+            <label for="chartFilter">Filtrar Gráfico:</label>
+            <select id="chartFilter" class="form-select w-25" onchange="filterChart()">
+                <option value="all">Todos</option>
+                <option value="vendas">Vendas</option>
+                <option value="despesas">Despesas</option>
+            </select>
+        </div>
+
+        <!-- Gestão de pagamentos e recebíveis dentro de uma caixa -->
+        <div class="card mt-4 p-4">
+            <h5>Gestão de Pagamentos e Recebíveis</h5>
+            <!-- Botão para abrir modal -->
+            <button class="btn btn-primary btn-add mt-3" data-bs-toggle="modal" data-bs-target="#addPaymentModal">Adicionar Novo</button>
+
+            <!-- Filtro de Status -->
+            <div class="mt-3">
+                <label for="statusFilter">Filtrar por Status:</label>
+                <select id="statusFilter" class="form-select w-25" onchange="filterPayments()">
+                    <option value="all">Todos</option>
+                    <option value="concluido">Concluído</option>
+                    <option value="pendente">Pendente</option>
+                </select>
+            </div>
+
+            <!-- Tabela de pagamentos -->
+            <table class="table table-striped table-payments mt-3" id="paymentTable">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Pedidos</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="status-concluido">
+                        <td>20/06/2024</td>
+                        <td>Pedido #1234</td>
+                        <td>R$ 100,00</td>
+                        <td>Concluído</td>
+                    </tr>
+                    <tr class="status-pendente">
+                        <td>10/06/2024</td>
+                        <td>Pedido #4567</td>
+                        <td>R$ 200,00</td>
+                        <td>Pendente</td>
+                    </tr>
+                    <tr class="status-concluido">
+                        <td>01/06/2024</td>
+                        <td>Pagamento Fornecedor</td>
+                        <td>R$ 150,00</td>
+                        <td>Concluído</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal para adicionar pagamento -->
+        <div class="modal fade" id="addPaymentModal" tabindex="-1" aria-labelledby="addPaymentModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addPaymentModalLabel">Adicionar Pagamento</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="paymentDate">Data:</label>
+                        <input type="date" id="paymentDate" class="form-control mb-3">
+                        <label for="paymentOrder">Pedido:</label>
+                        <input type="text" id="paymentOrder" class="form-control mb-3">
+                        <label for="paymentValue">Valor:</label>
+                        <input type="number" id="paymentValue" class="form-control mb-3">
+                        <label for="paymentStatus">Status:</label>
+                        <select id="paymentStatus" class="form-select mb-3">
+                            <option value="concluido">Concluído</option>
+                            <option value="pendente">Pendente</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="addPayment()">Salvar</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <button class="btn btn-secondary mt-3" onclick="generatePDF()">Baixar PDF</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="../assets/js/scriptFinanceiro.js"></script>
+</body>
+</html>

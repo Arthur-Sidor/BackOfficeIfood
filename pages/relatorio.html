@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Desempenho</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+        integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../assets/css/stylesReport.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md bg-light sidebar">
+                <div class="position-sticky">
+                    <!-- Seção de Perfil -->
+                    <div class="profile-section text-center mb-4">
+                        <img src="https://imagensfree.com.br/wp-content/uploads/2021/11/sorriso-ifood-fundo-transparente-grande.png" alt="Perfil" class="profile-icon mb-2" />
+                        <h6 class="profile-name">Seu Nome</h6>
+                    </div>
+                    
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link " href="telainicial.html">
+                                <span class="icon">🏠</span> Início
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="financeiro.html">
+                                <span class="icon">💼</span> Financeiro
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="visaogeral.html">
+                                <span class="icon">🔍</span> Visão Geral
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="desempenho.html">
+                                <span class="icon">📊</span> Desempenho
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="visaogeral.html">
+                                <span class="icon">📄</span> Relatórios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="login.html">
+                                <span class="icon">📄</span> Sair
+                            </a>
+                        </li>
+                    </ul>
+            
+                    <!-- Botão de Sair -->
+                    <ul class="nav flex-column mt-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span class="icon">🚪</span> Sair
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            
+                <!-- Botão de Feedback isolado -->
+                <div class="feedback-section">
+                    <h6 class="mb-2">Feedback</h6>
+                    <button class="btn btn-feedback" onclick="showFeedback('happy')">😊</button>
+                    <button class="btn btn-feedback" onclick="showFeedback('sad')">😔</button>
+                </div>
+            </nav>
+
+            <div class="container mt-5">
+                <div class="row">
+                    <!-- Card 1: Vendas/Receita -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">Vendas/Receita</h5>
+                                <p>Total de Pedidos: <strong>3,500</strong></p>
+                                <p>Valor Total das Vendas: R$ 350,000</p>
+                                <p>Média de Venda por Pedido: R$ 100</p>
+                                <p>Vendas por Categoria:</p>
+                                <ul>
+                                    <li>Pratos Principais: R$ 200,000</li>
+                                    <li>Bebidas: R$ 50,000</li>
+                                    <li>Sobremesas: R$ 30,000</li>
+                                    <li>Outros: R$ 70,000</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Card 2: Despesas -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">Despesas</h5>
+                                <p>Salários: R$ 30,000</p>
+                                <p>Logística e Entrega: R$ 20,000</p>
+                                <p>Marketing: R$ 10,000</p>
+                                <p>Outros: R$ 10,000</p>
+                                <p><strong>Despesas Fixas:</strong></p>
+                                <p>Aluguel: R$ 15,000</p>
+                                <p>Serviços Públicos: R$ 5,000</p>
+                                <p><strong>Despesas Variáveis:</strong></p>
+                                <p>Comissões iFood: R$ 10,000</p>
+                                <p>Taxas de Transação: R$ 5,000</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Card 3: Lucro/Perda -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">Lucro/Perda</h5>
+                                <p>Receitas Totais: R$ 350,000</p>
+                                <p>Margem Bruta: R$ 300,000</p>
+                                <p>Despesas Operacionais: R$ 120,000</p>
+                                <p>Lucro Operacional: R$ 180,000</p>
+                                <p>Despesas Financeiras: R$ 10,000</p>
+                                <p>Lucro Bruto: R$ 170,000</p>
+                                <p>Impostos (20%): R$ 34,000</p>
+                                <p>Lucro Líquido: R$ 136,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <!-- Card 4: Vendas com Clube iFood -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">Vendas com Club iFood</h5>
+                                <p>Total de Pedidos Clube iFood: <strong>1,200</strong></p>
+                                <p>Valor Total das Vendas Clube iFood: R$ 120,000</p>
+                                <p>Média de Venda por Pedido Clube iFood: R$ 100</p>
+                                <p>Comparação com Pedidos Totais:</p>
+                                <p>Total de Pedidos: 3,500</p>
+                                <p>Porcentagem de Pedidos do Clube iFood: 34.3%</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Card 5: Avaliação de Clientes -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">Avaliação de Clientes</h5>
+                                <p>Número Total de Avaliações: 2,500</p>
+                                <p>Avaliação Média: <strong>4.5 estrelas</strong></p>
+                                <p>Distribuição de Avaliações:</p>
+                                <ul>
+                                    <li>5 Estrelas: 1,800</li>
+                                    <li>4 Estrelas: 500</li>
+                                    <li>3 Estrelas: 150</li>
+                                    <li>2 Estrelas: 30</li>
+                                    <li>1 Estrela: 20</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Card 6: Personalizado -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 border-danger">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">Personalizado</h5>
+                                <div>
+                                    <img src="../assets/images/1676575829007.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Desempenho</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="../assets/css/stylesDesempenho.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+          <!-- Sidebar -->
+<nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+    <div class="position-sticky">
+        <!-- Seção de Perfil -->
+        <div class="profile-section text-center mb-4">
+            <img src="https://imagensfree.com.br/wp-content/uploads/2021/11/sorriso-ifood-fundo-transparente-grande.png" alt="Perfil" class="profile-icon mb-2" />
+            <h6 class="profile-name">Seu Nome</h6>
+        </div>
+        
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link " href="#">
+                    <span class="icon">🏠</span> Início
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="telainicial.html">
+                    <span class="icon">💼</span> Financeiro
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="visaogeral.html">
+                    <span class="icon">🔍</span> Visão Geral
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="desempenho.html">
+                    <span class="icon">📊</span> Desempenho
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="relatorio.html">
+                    <span class="icon">📄</span> Relatórios
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="login.html">
+                    <span class="icon">📄</span> Sair
+                </a>
+            </li>
+        </ul>
+
+        <!-- Botão de Sair -->
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <span class="icon">🚪</span> Sair
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Botão de Feedback isolado -->
+    <div class="feedback-section">
+        <h6 class="mb-2">Feedback</h6>
+        <button class="btn btn-feedback" onclick="showFeedback('happy')">😊</button>
+        <button class="btn btn-feedback" onclick="showFeedback('sad')">😔</button>
+    </div>
+</nav>
+
+            <!-- Conteúdo Principal -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between align-items-center mb-4 responsividade">
+                    <h2>Desempenho</h2>
+                    <div class="btn-group">
+                        <button class="btn">Personalizado</button>
+                        <button class="btn">7 dias</button>
+                        <button class="btn">30 dias</button>
+                    </div>
+                </div>
+
+                <!-- Painel de Desempenho Financeiro -->
+                <div class="row my-4">
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <h5>Painel Desempenho Financeiro</h5>
+                            <p>Receita Total: <span class="text-danger">R$100,00</span></p>
+                            <p>Lucro Total: <span class="text-danger">R$20,00</span></p>
+                            <p>Despesas Totais: <span class="text-danger">R$80,00</span></p>
+                            <p>Comissões Pagas ao Ifood: <span class="text-danger">R$10,00</span></p>
+                            <p>Despesas Operacionais: <span class="text-danger">R$20,00</span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card p-3">
+                            <h5>Análise de Desempenho Financeiro</h5>
+                            <p>Margem de Lucro: <span class="text-danger">5%</span></p>
+                            <p>Retorno sobre Investimento (ROI): <span class="text-danger">150%</span></p>
+                            <h6>Comparativo de Custos Mensais</h6>
+                            <ul>
+                                <li>Janeiro: R$70,00 / R$90,00 / R$20,00</li>
+                                <li>Fevereiro: R$80,00 / R$100,00 / R$20,00</li>
+                                <li>Março: R$90,00 / R$120,00 / R$30,00</li>
+                                <li>Abril: R$100,00 / R$140,00 / R$40,00</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alertas e Indicadores -->
+                <div class="row my-4">
+                    <div class="col-md-6">
+                        <div class="alert">
+                            <h5>Alertas e Notificações de Desempenho</h5>
+                            <p>⚠️ Queda de <span class="text-danger">10%</span> na receita em relação à semana passada</p>
+                            <p>📢 Aumento de <span class="text-danger">15%</span> nos custos operacionais em relação ao mês anterior</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="alert">
+                            <h5>Indicadores de Problemas</h5>
+                            <p>💰 Pagamento de <span class="text-danger">R$500,00</span> pendente</p>
+                            <p>🚨 Transação de <span class="text-danger">R$100</span> marcada como suspeita</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formas de Pagamento -->
+                <div class="row my-4">
+                    <div class="col-md-12">
+                        <div class="card p-3">
+                            <h5>Formas de Pagamento</h5>
+                            <ul>
+                                <li>Crédito <span class="badge bg-danger"></span></li>
+                                <li>Pix <span class="badge bg-danger"></span></li>
+                                <li>Débito <span class="badge bg-danger"></span></li>
+                                <li>Dinheiro <span class="badge bg-danger"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

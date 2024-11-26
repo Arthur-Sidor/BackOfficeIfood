@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Financeiro - iFood</title>
+    <link rel="stylesheet" href="../assets/css/StylesLogin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="image-container">
+                <!-- Ajuste o caminho da imagem -->
+                <img src="../assets/images/ImgLogin.png" alt="Imagem de Relatório de Dados">
+            </div>
+            <div class="login-form">
+                <img src="https://imagensfree.com.br/wp-content/uploads/2021/11/sorriso-ifood-fundo-transparente-grande.png" alt="iFood Logo" class="logo">
+                <h2>Portal Financeiro</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Digite seu email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#">Eita, esqueci a senha</a>
+                    </div>
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simulação de validação de login (substituir por lógica de backend, se necessário)
+            if (email === "usuario@ifood.com" && password === "123456") {
+                alert("Login bem-sucedido!");
+                window.location.href = "telainicial.html"; // Redireciona para a tela inicial
+            } else {
+                alert("Credenciais inválidas. Tente novamente.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Usuário</title>
+  <link rel="stylesheet" href="../assets/css/stylesTelaInicial.css"> <!-- Conexão com o CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <nav id="sidebar" class="sidebar">
+      <div class="position-sticky">
+        <!-- Seção de Perfil -->
+        <div class="profile-section">
+          <img src="https://imagensfree.com.br/wp-content/uploads/2021/11/sorriso-ifood-fundo-transparente-grande.png"
+            alt="Perfil" class="profile-icon" />
+          <h6 class="profile-name">Seu Nome</h6>
+        </div>
+
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="telainicial.html">
+              <span class="icon">🏠</span> Início
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="financeiro.html">
+              <span class="icon">💼</span> Financeiro
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="visaogeral.html">
+              <span class="icon">🔍</span> Visão Geral
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="desempenho.html">
+              <span class="icon">📊</span> Desempenho
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="relatorio.html">
+              <span class="icon">📄</span> Relatórios
+            </a>
+          </li>
+          
+        </ul>
+
+        <!-- Botão de Sair -->
+        <ul class="nav mt-4">
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">
+              <span class="icon">🚪</span> Sair
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Botão de Feedback isolado -->
+      <div class="feedback-section">
+        <h6>Feedback</h6>
+        <button class="btn-feedback" onclick="showFeedback('happy')">😊</button>
+        <button class="btn-feedback" onclick="showFeedback('sad')">😔</button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dashboard">
+      <section class="greetings">
+        <h1>Bem-vindo, Usuário</h1>
+      </section>
+
+      <section class="stats">
+        <div class="card">
+          <h2>Pratos</h2>
+          <p><span class="highlight" id="newDishes">110 novos</span> em comparação ao mês passado.</p>
+        </div>
+        <div class="card">
+          <h2>Pedidos</h2>
+          <p><span class="highlight" id="ordersIncrease">+10%</span> a mais em comparação ao mês passado.</p>
+        </div>
+        <div class="card">
+          <h2>Clientes</h2>
+          <p><span class="highlight" id="newClients">3.398 novos foodlovers</span></p>
+        </div>
+        <div class="card">
+          <h2>Receitas</h2>
+          <p><span class="highlight" id="revenue">R$112.998</span> a receber</p>
+        </div>
+        <div class="card map">
+          <h2>Área de serviço</h2>
+          <a href="https://www.google.com/maps/search/food+service+area" target="_blank">
+            <img src="../assets/images/Screenshot_1.png" alt="Mapa da área de serviço">
+          </a>
+        </div>
+      </section>
+
+      <section class="charts">
+        <div class="chart">
+          <h2>Quantidade de pedidos</h2>
+          <canvas id="ordersChart"></canvas>
+        </div>
+        <div class="chart">
+          <h2>Idade dos clientes</h2>
+          <p><span class="highlight">75%</span> 18-30 anos</p>
+          <p><span class="highlight">20%</span> 30-50 anos</p>
+          <p><span class="highlight">5%</span> 50+ anos</p>
+        </div>
+      </section>
+    </main>
+  </div>
+ 
+
+  <script src="../assets/js/scriptTelaInicial.js"></script>
+
+</body>
+
+</html>

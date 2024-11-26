@@ -1,0 +1,102 @@
+/* Definições Gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Sidebar */
+#sidebar {
+    padding: 20px;
+    background-color: #f6f1ee;
+    height: 100vh; /* Ocupa a altura total da página */
+    position: sticky; /* Fixa o sidebar na tela */
+    top: 0; /* Ajusta a posição do sidebar */
+}
+
+#sidebar .profile-section {
+    margin-bottom: 30px;
+}
+
+.profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#sidebar .nav-link {
+    font-size: 1.2rem; /* Aumenta o tamanho da fonte */
+    padding: 15px 20px; /* Aumenta o espaçamento entre os links */
+    margin-bottom: 10px; /* Adiciona um espaço entre os itens do menu */
+    border-radius: 10px; /* Bordas arredondadas */
+    color: #333;
+    background-color: #e9ecef;
+    transition: background-color 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+#sidebar .nav-link:hover {
+    background-color: #eb604e; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+}
+
+#sidebar .nav-link.active {
+    background-color: #eb604e; /* Cor de fundo do item ativo */
+    color: #fff; /* Cor do texto do item ativo */
+}
+
+#sidebar .icon {
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+}
+
+/* Botão de Feedback */
+.feedback-section {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - 40px); /* Ajusta a largura para não ultrapassar o sidebar */
+    left: 20px; /* Alinha à esquerda do sidebar */
+}
+
+.feedback-section h6 {
+    color: #333;
+    font-size: 1rem;
+}
+
+.btn-feedback {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    padding: 5px 10px;
+}
+
+/* Estilos para os cards */
+.card {
+    border-radius: 8px;
+    border: 1px solid #DC3545;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        position: relative; /* Para telas pequenas, o sidebar não será fixo */
+        width: 100%; /* O sidebar ocupará toda a largura */
+    }
+
+    main {
+        margin-left: 0; /* Remove a margem em telas pequenas */
+    }
+}
